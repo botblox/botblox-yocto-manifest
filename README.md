@@ -9,12 +9,12 @@ The branch name is based on the release type, Linux or Android, and the Yocto Pr
 
 For example, for i.MX Linux BSP releases based on Yocto Project `Scarthgap`, the branch is `imx-linux-scarthgap`.
 
-Install the `repo` utility:
+Install the `repo` utility
 ---------------------------
 
 To use this manifest repo, the `repo` tool must be installed first.
 
-```
+```shell
 $: mkdir ~/bin
 $: curl http://commondatastorage.googleapis.com/git-repo-downloads/repo  > ~/bin/repo
 $: chmod a+x ~/bin/repo
@@ -23,17 +23,19 @@ $: PATH=${PATH}:~/bin
 
 Install essential host packages
 ------------------------------
+
 Your Build Host must install required packages for the Yocto build.
 Reference to the section "Build Host Packages" in the document "Yocto Project Quick build".
-- https://docs.yoctoproject.org/5.0.3/brief-yoctoprojectqs/index.html#build-host-packages
+
+- <https://docs.yoctoproject.org/5.0.3/brief-yoctoprojectqs/index.html#build-host-packages>
 
 Download the Yocto Project BSP
 ------------------------------
 
-```
+```shell
 $: mkdir <release>
 $: cd <release>
-$: repo init -u https://github.com/nxp-imx/imx-manifest -b <branch name> [ -m <release manifest>]
+$: repo init -u https://github.com/botblox/botblox-yocto-manifest -b <branch name> [ -m <release manifest>]
 $: repo sync
 ```
 
@@ -43,22 +45,19 @@ Examples
 --------
 
 To download the 6.6.36-2.1.0 release
-```
-$: repo init -u https://github.com/nxp-imx/imx-manifest -b imx-linux-scarthgap -m imx-6.6.36-2.1.0.xml
-```
-To download the 6.6.23-2.0.0 release
-```
-$: repo init -u https://github.com/nxp-imx/imx-manifest -b imx-linux-scarthgap -m imx-6.6.23-2.0.0.xml
+
+```shell
+$: repo init -u https://github.com/botblox/botblox-yocto-manifest -b imx-linux-scarthgap -m imx-6.6.36-2.1.0.xml
 ```
 
-Setup the build folder for a BSP release:
+Setup the build folder for a BSP release
 -----------------------------------------
 
 Note: The remaining instructions are for setting up a BSP release only. For setting
 up a demo, please see `imx-manifest/README-<demo>` for further instructions.
 
-```
-$: [MACHINE=<machine>] [DISTRO=fsl-imx-<backend>] source ./imx-setup-release.sh -b bld-<backend>
+```shell
+$: [MACHINE=<machine>] [DISTRO=fsl-imx-<backend>] source ./botblox-setup-release.sh -b bld-<backend>
 
 <machine>   defaults to `imx6qsabresd`
 <backend>   Graphics backend type
@@ -71,15 +70,17 @@ Note: If the poky community distro is used, then build breaks will happen with s
 components using our `meta-imx` layer.
 
 Examples:
+
 - Setup for XWayland.
-```
+
+```shell
 $: MACHINE=imx8mnevk DISTRO=fsl-imx-xwayland source ./imx-setup-release.sh -b bld-xwayland
 ```
 
-Build an image:
+Build an image
 ---------------
 
-```
+```shell
 $: bitbake <image recipe>
 ```
 
