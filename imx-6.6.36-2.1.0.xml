@@ -46,11 +46,12 @@
   <project name="meta-swupdate" remote="swupdate" path="sources/meta-swupdate" revision="1265c3837e4f2ad63214761ffb994eec80f794f4" upstream="scarthgap" />
   <project name="meta-swupdate-imx" remote="imx-support" path="sources/meta-swupdate-imx" revision="8ce91147b0d0831d0b5e77573cc7b9cc1ceb0ac8" upstream="mickledore_6.1.36_2.1.0" />
 
-  <project name="botblox/meta-botblox" path="sources/meta-botblox" remote="botblox" revision="3dc1c92c49ed039879f2fd189436ee9dd82af324" upstream="master">
+  <project name="botblox/meta-botblox" path="sources/meta-botblox" remote="botblox" revision="23d6594c5b9662c8fbf7d733bd41b334ae089599" upstream="master">
     <linkfile src="tools/botblox-setup-release.sh" dest="botblox-setup-release.sh"/>
     <linkfile src="tools/setup-environment" dest="setup-environment"/>
     <linkfile src="tools/generate-private-public-key-for-update-signing.sh" dest="generate-private-public-key-for-update-signing.sh" />
     <linkfile src="README" dest="README-BotBlox" />
+    <linkfile src=".vscode/launch.json" dest=".vscode/launch.json" />
   </project>
 
 </manifest>
